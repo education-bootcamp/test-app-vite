@@ -12,14 +12,14 @@ class Counter extends React.Component<{},{count:number}>{
     }
 
     increment=()=>{
-        this.setState((lastState)=>{
-            count:lastState.count+1;
-        })
+        this.setState((lastState)=>({
+            count:lastState.count+1
+        }))
     }
     decrement=()=>{
-        this.setState((lastState)=>{
-            count:lastState.count-1;
-        })
+        this.setState((lastState)=>({
+            count:lastState.count-1
+        }))
     }
 
     render() {
