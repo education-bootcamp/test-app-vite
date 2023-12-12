@@ -1,26 +1,8 @@
 
 import './App.css';
-import React, {useState} from "react";
+import Customer from './Customer.tsx';
 
-
-const Counter: React.FC=()=>{
-    const [count,setCount]= useState<number>(0);
-    return(
-        <>
-            <p>Count: {count}</p>
-            <button onClick={()=>setCount(count+1)}>Increment</button> |
-            <button onClick={()=>setCount(count-1)}>Decrement</button>
-        </>
-    )
-}
-
-
-export default Counter;
-
-
-
-/*
-* const customers=[
+const customers=[
     {
         id:'1',
         avatar:'https://m.media-amazon.com/images/M/MV5BMGQ1ZGZmNTAtM2MyYi00NmZhLTkwYmYtNTNlZDRhMzU2ZTgwXkEyXkFqcGdeQW1yb3NzZXI@._V1_.jpg',
@@ -58,35 +40,14 @@ export default Counter;
     }
 ];
 function App() {
-
-
     return(
         <>
            <h1>Customer Data</h1>
            <hr/>
-           {
-               customers.map((customer)=>(
-                           <div className="card" key={customer.id}
-                                onClick={()=>{
-                                console.log(customer)}}
-                           >
-                               <img src={customer.avatar} className="card-img-top" alt={customer.customerName}/>
-                               <div className="card-body">
-                                   <h5 className="card-title">{customer.customerName}</h5>
-                                   <p className="card-text">{customer.description}</p>
-                                   <a href={customer.userProfile} className="btn btn-primary" target='_blank'>Go somewhere</a>
-                               </div>
-                           </div>
-                       )
-
-               )
-        }
-
+            <Customer/>
        </>
     )
 
 }
 
-*
-*
-* */
+export default App;
