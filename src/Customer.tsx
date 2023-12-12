@@ -1,13 +1,20 @@
 
+interface Customer {
+    id:string,
+    avatar:string,
+    customerName:string,
+    description:string,
+    userProfile:string
+}
 
-function Customer() {
+function Customer(props:Customer) {
     return(
         <div className="card">
-            <img src='{customer.avatar}' className="card-img-top" alt='{customer.customerName}'/>
+            <img src={props.avatar} className="card-img-top" alt={props.customerName}/>
             <div className="card-body">
-                <h5 className="card-title">sd</h5>
-                <p className="card-text">description</p>
-                <a href='{customer.userProfile}' className="btn btn-primary" target='_blank'>Go somewhere</a>
+                <h5 className="card-title">{props.customerName}</h5>
+                <p className="card-text">{props.description}</p>
+                <a href={props.userProfile} className="btn btn-primary" target='_blank'>Go somewhere</a>
             </div>
         </div>
     )
