@@ -12,7 +12,7 @@ const customers=[
     },
     {
         id:'2',
-        avatar:'https://static.wikia.nocookie.net/hannibal/images/2/23/Voonakeste-vaikimine-73591313.jpg/revision/latest?cb=20210507145148',
+        avatar:'https://static.toiimg.com/thumb/msid-67521581,width-1280,resizemode-4/67521581.jpg',
         customerName:'Hannibal Lecter',
         description:'Dr. Hannibal Lecter is a character created by the American novelist Thomas Harris. Lecter is a serial killer who eats his victims',
         userProfile:'https://www.google.com/search?sca_esv=590159290&cs=1&sxsrf=AM9HkKmtn66ZWnJuj_jqFM105ppBpR--lA:1702395336946&q=Hannibal+Lecter&stick=H4sIAAAAAAAAAEVSO2_TUBSOIzVK3KI2roREFqoIpKpL7Os3Syq1RQytkGgWJsv2tWPHz8RXN3bGSsxUDPwAxIAQv4CBgY0KMSDRDQbEwlJWxETS3JN68Xe-8_zOPc21bquX9ERJQzhAm34YJztuYE9sl3iT4oJrLpwyITGDeGaML7hlSqkOEaNzjboXHH8dUTjJxISYRVmG1SC35vyt3rAnSYEeWHpkpswnG3miMIxKbMis7pD6IqNdc0wqRktYHUKERRwGg3RasGBT8zHQPqpEgKPUgC5EKRKGNQVThY2vIsOIcmYoEZVNygxDHFlDCgLcXE2MFMEyENZM2IArStQHQzWnibtqRKspYIOWhQPyXW1UsQSUR2KBwaEpegkt5GRqgRDJgQUgFecr1ZoDG5AKtNjisspMHE_hLccLqcsiUaKDUL0SdXgoWVEdC6ahkRERluBOyBSGyaURhpvA4oTRSq7g8iY1GOkwmqxTCluwokkMvUzX135yV9z61u-_P7Y7v7gX7z5dct85fus4ywovrp54sU08PMiE23zjKCUhqYSNDs8vxdMyFQb8-qlHBtlJhkO_Eo6EA7514iXO_IAf-wLi-YMsjj2XhFkq3Ot0-Z2euyJ6fnj9t2Pr5uwf1Hfr3afo4fuvL7809tu1-ff52el-Z3evzTcOs8QO03bn7uUd_O2sv7fNNwd2maVZUrW7b5_f965e97ut1iLp8N-f_l7tvM6dfXjzsdFscls1VG_WZrWNV2ubj-w0DR073jn2Fk3PG9x_jHTQv4wDAAA&sa=X&ved=2ahUKEwjBuczqnIqDAxWPbGwGHZ-6CKwQ7fAIegUIABCQBg'
@@ -47,19 +47,21 @@ function App() {
            <h1>Customer Data</h1>
            <hr/>
            {
-               customers.map((customer)=>{
-                   return(
-                           <div className="card" key={customer.id}>
-                               <img src="https://www.cleveland.com/resizer/esAKvEBmq-2oEka-DOEoUQ-_TZU=/1280x0/smart/advancelocal-adapter-image-uploads.s3.amazonaws.com/expo.advance.net/img/4eb3a4f864/width2048/28b_nnsmoviesshrek2.jpeg" className="card-img-top" alt="..."/>
+               customers.map((customer)=>(
+                           <div className="card" key={customer.id}
+                                onClick={()=>{
+                                console.log(customer)}}
+                           >
+                               <img src={customer.avatar} className="card-img-top" alt={customer.customerName}/>
                                <div className="card-body">
-                                   <h5 className="card-title">Card title</h5>
-                                   <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                   <a href="#" className="btn btn-primary">Go somewhere</a>
+                                   <h5 className="card-title">{customer.customerName}</h5>
+                                   <p className="card-text">{customer.description}</p>
+                                   <a href={customer.userProfile} className="btn btn-primary" target='_blank'>Go somewhere</a>
                                </div>
                            </div>
                        )
 
-               })
+               )
         }
 
        </>
