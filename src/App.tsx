@@ -1,8 +1,59 @@
 
-import './App.css'
+import './App.css';
+import React from "react";
+/*class, function*/
+
+class Counter extends React.Component<{},{count:number}>{
+    constructor(props:{}) {
+        super(props);
+        this.state={
+            count:0
+        }
+    }
+
+    increment=()=>{
+        this.setState((lastState)=>{
+            count:lastState.count+1;
+        })
+    }
+    decrement=()=>{
+        this.setState((lastState)=>{
+            count:lastState.count-1;
+        })
+    }
+
+    render() {
+        return(
+            <>
+                <p>Count: {this.state.count}</p>
+                <button onClick={this.increment}>Increment</button> |
+                <button onClick={this.decrement}>Decrement</button>
+            </>
+            )
+
+    }
+
+}
+
+/*function App() {
 
 
-const customers=[
+    return(
+        <>
+            <p>Count: 0</p>
+            <button>Increment</button> |
+            <button>Decrement</button>
+        </>
+    )
+
+}*/
+
+export default Counter;
+
+
+
+/*
+* const customers=[
     {
         id:'1',
         avatar:'https://m.media-amazon.com/images/M/MV5BMGQ1ZGZmNTAtM2MyYi00NmZhLTkwYmYtNTNlZDRhMzU2ZTgwXkEyXkFqcGdeQW1yb3NzZXI@._V1_.jpg',
@@ -69,4 +120,6 @@ function App() {
 
 }
 
-export default App;
+*
+*
+* */
